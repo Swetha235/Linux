@@ -1,1 +1,58 @@
+cd /opt
+mkdir swetha
+cd swetha
+touch jenkins
+touch k8s
+touch docker
+mkdir aws
+cd aws
+touch s3
+touch maven
+touch trivy
+
+
+######################################
+
+echo "enter the name of the devops engineer"
+read name
+mkdir $name
+cd $name
+touch linux
+touch aws
+touch ansible
+touch docker
+mkdir devops
+cd devops
+touch trivy
+touch groovy
+
+###################################
+Tomcat
+
+cd /opt
+yum install java -y
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.106/bin/apache-tomcat-9.0.106.tar.gz
+tar -xvf apache-tomcat-9.0.106.tar.gz
+cd apache-tomcat-9.0.106
+cd bin
+sh startup.sh
+
+#####################################
+Jenkins setup
+
+yum update –y
+wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+yum upgrade
+yum install java-17-amazon-corretto -y
+yum install jenkins -y
+systemctl enable jenkins
+systemctl start jenkins
+systemctl status jenkins
+cat /var/lib/jenkins/secrets/initialAdminPassword
+
+###############################################
+
+
 
